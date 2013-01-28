@@ -1,11 +1,11 @@
-require "quick_config/version"
+require "quick_config/version.rb"
 
 module QuickConfig
   extend self
 
   def property(name, value=nil)        
-    unless is_name_valid?(name)
-      raise "Property name invalid or not provided. Use symbols for property names." 
+    unless name_is_valid?(name)
+      raise "Property name invalid or not provided" 
     end
 
     attr_accessor name
@@ -15,23 +15,13 @@ module QuickConfig
     end
   end
 
-  def method(name, body=nil)        
-    unless is_name_valid?(name)
-      raise "Method name invalid or not provided. Use symbols for method names." 
-    end
-
-    define_method name do
-      instance_eval(body)
-    end
-  end
-
   def config(&conf)
     instance_eval(&conf)
   end
 
   private
 
-  def is_name_valid?(name)
+  def name_is_valid?(name)
     !name.nil? \
     && (name.is_a?(Symbol) || name.is_a?(String)) \
     && !name.to_s().match(/^[a-zA-Z_]+[0-9a-zA-Z_]+$/).nil?

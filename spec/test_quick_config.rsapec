@@ -1,0 +1,16 @@
+require 'spec_helper'
+require 'quick_config'
+
+describe QuickConfig do
+  @name = "K"
+
+  before do    
+    QuickConfig.config do
+      property :name, @name
+    end
+  end  
+
+  it "property should match" do
+    QuickConfig.name.should == @name
+  end  
+end
