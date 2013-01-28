@@ -1,0 +1,22 @@
+require 'spec_helper'
+require 'quick_config'
+
+describe QuickConfig do
+  @name = "K"
+  @age = 121
+
+  before do    
+    QuickConfig.set do
+      property :name, @name
+      property :age, @age
+    end
+  end  
+
+  it "name property should match the name value" do
+    QuickConfig.name.should == @name
+  end
+
+  it "age property should match the age value" do
+    QuickConfig.age.should == @age
+  end  
+end

@@ -15,7 +15,7 @@ module QuickConfig
     end
   end
 
-  def config(&conf)
+  def set(&conf)
     instance_eval(&conf)
   end
 

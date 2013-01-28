@@ -1,6 +1,6 @@
 # QuickConfig
 
-TODO: Write a gem description
+A quick and easy way to group and access your application configuration data.
 
 ## Installation
 
@@ -18,7 +18,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+<pre>
+#Include the gem.
+<code>
+require 'quick_config'
+</code></pre>
+
+<pre>
+#Set property name/value pairs.
+<code>
+QuickConfig.set do
+  property :name, "K"
+  property :age, 12  
+end
+</code></pre>
+
+<pre>
+#Read out previously set property
+<code>
+puts QuickConfig.name
+puts QuickConfig.age
+</code></pre>
 
 ## Contributing
 
